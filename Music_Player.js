@@ -33,11 +33,11 @@ let library = {
   //'Math.floor(x)'is syntax. x represents number you want to round. 'toString(r)' is syntax. r represents numeric value.(2 = binary, 8= octal, 16=hexadecimal) '任意の文字列.substring(x,y)' is syntax, 文字列を分割したり任意の箇所を抽出したりする。xが任意の文字列の開始、yが終了位置。
 
   printAllSongNames: function() {
-    const songIDs = Object.keys(library.songs);
-    return songIDs;
-    for (let i = 0; i < songIDs.length; i++){
-      console.log(library.songs[songID]["name"]);
-    };
+    const songIDs = Object.keys(library.songs);  //songIDs = [s01], s02, s03
+    console.log(songIDs);
+    // for (let i = 0; i < songIDs.length; i++){
+    //   console.log(library.songs[songID]["name"]);
+    // };
   },
 
 
