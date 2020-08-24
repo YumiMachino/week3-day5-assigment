@@ -61,6 +61,11 @@ let library = {
 
   printAllPlaylistNames: function() {
     // Print the nmaes of all the playlists
+
+    let printID = Object.keys(library.playlists);
+    printID.forEach(playlist => {
+      console.log(library.playlists[printID].name);
+    });
   },
 
   printPlaylistSongs: function(playlistID) {
@@ -94,4 +99,5 @@ let library = {
 // //------For check:
 // console.log(library.printAllSongNames());
 // console.log(library.printSongName("s01"));
-console.log(library.printPlaylistName("p01"));
+// console.log(library.printPlaylistName("p01"));
+console.log(library.printAllPlaylistNames());
