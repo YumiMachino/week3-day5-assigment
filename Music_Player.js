@@ -36,27 +36,19 @@ let library = {
     //print the names of all the songs to the console
 
     let songIDs = Object.keys(library.songs); //songIDs = [ 's01', 's02', 's03' ]
-    // For loop by songsIDs[i]
+    // ForEach
     songIDs.forEach(song => {
       console.log(library.songs[song].name);
     });
-    // for (let i = 0; i <= songIDs.length; i++) {
-    //   console.log(library.songs[songIDs[i]]["name"]);
-    // }
   },
-  ////??????
 
   printSongName: function(songID) {
     // print the name of a song when given its ID
-    let prop = "name";
-    if ((songID = Object.keys(library.songs))) {
-      console.log(library.songs.songID[prop]);
+
+    if (library.songs.hasOwnProperty(songID)) {
+      console.log(library.songs[songID].name);
     }
-    // if (library.songID.hasOwnProperty(songID)) {
-    //   console.log(library.songs[songID]["name"]);
-    // }
   },
-  //////?????
 
   printPlaylistName: function(playlistID) {
     // Print the name of a playlist when given its ID
@@ -95,5 +87,5 @@ let library = {
 // console.log(library.songs);
 
 // //------For check:
-console.log(library.printAllSongNames());
-// console.log(library.printSongName("s01"));
+// console.log(library.printAllSongNames());
+console.log(library.printSongName("s01"));
