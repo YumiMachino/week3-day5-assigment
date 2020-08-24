@@ -62,20 +62,41 @@ let library = {
   printAllPlaylistNames: function() {
     // Print the nmaes of all the playlists
 
-    let printID = Object.keys(library.playlists);
-    printID.forEach(playlist => {
-      console.log(library.playlists[printID].name);
+    let playlistIDs = Object.keys(library.playlists);
+    //print p01, p02 as array
+    playlistIDs.forEach(playlist => {
+      console.log(library.playlists[playlist].name);
     });
   },
 
   printPlaylistSongs: function(playlistID) {
     // Print the names of all the songs in whatever playlist id was given
+
+    let playlistIDs = Object.keys(library.playlists);
+    //print p01,p02 as array
+
+    if (library.playlists.hasOwnProperty(playlistID)) {
+      playlistIDs.forEach(playlist => {
+        console.log(library.playlists[playlist].name);
+      });
+    }
   },
 
   addSong: function(name, artist, album) {
     // add a new song to the songs object. The song should be its own object,
+    //Generate new songID
+    let newSongID = library.generateUid();
+
     // containing a randomly generated id, a name, an artist, and an album
+
+    let newSong = {
+      id: library.generateUid(),
+      artist: library.generateUid(),
+      album: library.generateUid()
+    };
+    library.songs[newSongID] = newSong;
     // console.log to confirm that the song has been added.
+    console.log(library.songs);
   },
 
   addSongToPlaylist: function(songID, playlistID) {
@@ -99,5 +120,7 @@ let library = {
 // //------For check:
 // console.log(library.printAllSongNames());
 // console.log(library.printSongName("s01"));
-// console.log(library.printPlaylistName("p01"));
-console.log(library.printAllPlaylistNames());
+// // console.log(library.printPlaylistName("p01"));
+// console.log(library.printAllPlaylistNames());
+// console.log(library.printPlaylistSongs("p01"));
+console.log(library.addSong());
