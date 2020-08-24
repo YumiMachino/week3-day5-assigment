@@ -37,9 +37,12 @@ let library = {
 
     let songIDs = Object.keys(library.songs); //songIDs = [ 's01', 's02', 's03' ]
     // For loop by songsIDs[i]
-    for (let i = 0; i <= songIDs.length; i++) {
-      console.log(library.songs[songIDs[i]]["name"]);
-    }
+    songIDs.forEach(song => {
+      console.log(library.songs[song].name);
+    });
+    // for (let i = 0; i <= songIDs.length; i++) {
+    //   console.log(library.songs[songIDs[i]]["name"]);
+    // }
   },
   ////??????
 
@@ -92,5 +95,5 @@ let library = {
 // console.log(library.songs);
 
 // //------For check:
-// console.log(library.printAllSongNames());
-console.log(library.printSongName("s01"));
+console.log(library.printAllSongNames());
+// console.log(library.printSongName("s01"));
