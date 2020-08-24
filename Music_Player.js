@@ -32,99 +32,88 @@ let library = {
   },
   //'Math.floor(x)'is syntax. x represents number you want to round. 'toString(r)' is syntax. r represents numeric value.(2 = binary, 8= octal, 16=hexadecimal) '任意の文字列.substring(x,y)' is syntax, 文字列を分割したり任意の箇所を抽出したりする。xが任意の文字列の開始、yが終了位置。
 
+  printSongName: function(songID) {
+    // print the name of a song when given its ID
+
+    console.log(library.songs[songID].name);
+    //use brackets for variable here (. for object)
+  },
+
   printAllSongNames: function() {
     //print the names of all the songs to the console
 
     let songIDs = Object.keys(library.songs); //songIDs = [ 's01', 's02', 's03' ]
-    // use ForEach to iterate array. array.forEach(processing by callback function). song = one of the contents inside the array.
-    songIDs.forEach(song => {
-      console.log(library.songs[song].name);
-    });
-  },
 
-  printSongName: function(songID) {
-    // print the name of a song when given its ID
-
-    // object.hasOwnProperty = to judge the object owns the designated prop.
-    if (library.songs.hasOwnProperty(songID)) {
-      console.log(library.songs[songID].name);
-    }
+    //use for loop
+    for (i = 0; i < songIDs.length; i++) {
+      console.log(library.songs[songIDs[i]].name);
+    } // print [i]th array of songIDs name
   },
 
   printPlaylistName: function(playlistID) {
     // Print the name of a playlist when given its ID
 
-    if (library.playlists.hasOwnProperty(playlistID)) {
-      console.log(library.playlists[playlistID].name);
-    }
-  },
+    console.log(library.playlists[playlistID].name);
+  }, //use [] for variable
 
   printAllPlaylistNames: function() {
     // Print the nmaes of all the playlists
 
     let playlistIDs = Object.keys(library.playlists);
     //print p01, p02 as array
-    playlistIDs.forEach(playlist => {
-      console.log(library.playlists[playlist].name);
-    });
+
+    for (i = 0; i < playlistIDs.length; i++) {
+      console.log(library.playlists[playlistIDs[i]].name);
+    }
   },
 
   printPlaylistSongs: function(playlistID) {
     // Print the names of all the songs in whatever playlist id was given
 
-    let playlistIDs = Object.keys(library.playlists);
-    //print p01,p02 as array
+    let playlistSongs = library.playlists[playlistID].tracks; //returns an array of tracks
+    console.log(playlistSongs);
 
-    if (library.playlists.hasOwnProperty(playlistID)) {
-      playlistIDs.forEach(playlist => {
-        console.log(library.playlists[playlist].name);
-      });
-    }
+    for (i = 0; i < playlistSongs.length; i++) {
+      library.printSongName(playlistSongs[i]);
+    } // looping through the array of track
   },
 
-  addSong: function(name, artist, album) {
-    // add a new song to the songs object. The song should be its own object,
-    //Generate new songID
-    let newSongID = library.generateUid();
-
-    // containing a randomly generated id, a name, an artist, and an album
-
+  addSong: function(songName, songArtist, songAlbum) {
+    //create a New song object info
+    //answer
     let newSong = {
-      id: library.generateUid(),
-      artist: library.generateUid(),
-      album: library.generateUid()
+      id: library.generateUid(), //generate newSongID
+      name: songName,
+      artist: songArtist,
+      album: songAlbums
     };
-    library.songs[newSongID] = newSong;
+
+    library.songs[newSong.id] = newSong; //set the location of newSong
+
     // console.log to confirm that the song has been added.
     console.log(library.songs);
   },
 
   addSongToPlaylist: function(songID, playlistID) {
-    // given a songID, add that song to the playlist for the given playlistID
-    if (
-      (songID =
-        Object.keys(library.songs) &&
-        (playlistID = Object.keys(library.playlists)))
-    ) {
-      let track = library.playlists.tracks;
-      track.push(songID);
-    }
+    //answer
+    this.printPlaylistSongs(playlistID); //print an array of tracks
+    library.playlists[playlistID].tracks.push[songID]; //add an songID at the end of the array
+    this.printPlaylistSongs(playlistID);
 
     //console.log the playlist to make sure the song was added.
     console.log(library.playlists);
   },
 
-  addPlaylist: function(name, arrOfSongs) {
-    // add a new playlist to the playlist object. it will be
-    // containing a randomly generated id, a name, and an array of songs to be added to the playlist
-    let newPlaylistID = library.generateUid();
+  addPlaylist: function(playlistName, arrOfSongs) {
+    //answer
+    //create a new playlist object
     let newPlaylist = {
-      id: library.generateUid(),
-      name: library.generateUid(),
-      tracks: [library.generateUid]
+      id: library.generateUid(), //generate random id
+      name: playlistName,
+      tracks: arrOfSongs
     };
-    // console.log to confirm that the playlist has been added.
-    console.log(library.playilsts);
+    library.playlists[newPlaylist.id] = newPlaylist; //set the location of newPlaylist, declare of where I want to put newPlaylist
+    this.printAllPlaylistNames();
   }
 };
 
