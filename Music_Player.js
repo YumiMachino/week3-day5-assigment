@@ -33,20 +33,27 @@ let library = {
   //'Math.floor(x)'is syntax. x represents number you want to round. 'toString(r)' is syntax. r represents numeric value.(2 = binary, 8= octal, 16=hexadecimal) '任意の文字列.substring(x,y)' is syntax, 文字列を分割したり任意の箇所を抽出したりする。xが任意の文字列の開始、yが終了位置。
 
   printAllSongNames: function() {
-    const songIDs = Object.keys(library.songs);  //songIDs = [s01], s02, s03
-    console.log(songIDs);
-    // for (let i = 0; i < songIDs.length; i++){
-    //   console.log(library.songs[songID]["name"]);
-    // };
-  },
+    //print the names of all the songs to the console
 
+    let songIDs = Object.keys(library.songs); //songIDs = [ 's01', 's02', 's03' ]
+    // For loop by songsIDs[i]
+    for (let i = 0; i <= songIDs.length; i++) {
+      console.log(library.songs[songIDs[i]]["name"]);
+    }
+  },
+  ////??????
 
   printSongName: function(songID) {
     // print the name of a song when given its ID
-    let songIDs = Object.keys(library.songs);
-    if (SongIDs.hasOwnProperty('name'))
+    let prop = "name";
+    if ((songID = Object.keys(library.songs))) {
+      console.log(library.songs.songID[prop]);
+    }
+    // if (library.songID.hasOwnProperty(songID)) {
+    //   console.log(library.songs[songID]["name"]);
+    // }
   },
-
+  //////?????
 
   printPlaylistName: function(playlistID) {
     // Print the name of a playlist when given its ID
@@ -84,6 +91,6 @@ let library = {
 
 // console.log(library.songs);
 
-//------For check:
-console.log(library.printAllSongNames());
-// console.log(printSongName(s01));
+// //------For check:
+// console.log(library.printAllSongNames());
+console.log(library.printSongName("s01"));
