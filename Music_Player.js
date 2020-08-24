@@ -101,13 +101,30 @@ let library = {
 
   addSongToPlaylist: function(songID, playlistID) {
     // given a songID, add that song to the playlist for the given playlistID
+    if (
+      (songID =
+        Object.keys(library.songs) &&
+        (playlistID = Object.keys(library.playlists)))
+    ) {
+      let track = library.playlists.tracks;
+      track.push(songID);
+    }
+
     //console.log the playlist to make sure the song was added.
+    console.log(library.playlists);
   },
 
   addPlaylist: function(name, arrOfSongs) {
     // add a new playlist to the playlist object. it will be
     // containing a randomly generated id, a name, and an array of songs to be added to the playlist
+    let newPlaylistID = library.generateUid();
+    let newPlaylist = {
+      id: library.generateUid(),
+      name: library.generateUid(),
+      tracks: [library.generateUid]
+    };
     // console.log to confirm that the playlist has been added.
+    console.log(library.playilsts);
   }
 };
 
@@ -123,4 +140,5 @@ let library = {
 // // console.log(library.printPlaylistName("p01"));
 // console.log(library.printAllPlaylistNames());
 // console.log(library.printPlaylistSongs("p01"));
-console.log(library.addSong());
+// console.log(library.addSong());
+console.log(library.addSongToPlaylist("s03", "p03"));
